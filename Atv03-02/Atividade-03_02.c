@@ -23,8 +23,8 @@
 #define I2C_SCL_PIN     15           // Pino SCL
 #define DISPLAY_ADDR    0x3C         // Endereço I²C do display SSD1306
 
-// Configuração para a matriz de LEDs WS2812
-#define LED_MATRIZ_PIN  7            // Pino de controle dos WS2812 (ex: matriz 5x5)
+// Configuração para a matriz de LEDs
+#define LED_MATRIZ_PIN  7            // Pino de controle da matriz de leds
 
 // Configuração dos botões
 #define BOTAO_A         5            // Pino do botão A
@@ -36,7 +36,8 @@
 
 // Configuração dos LEDs indicadores
 #define LED_VERMELHO    13           // Agora o LED indicador é o LED VERMELHO (pino 13)
-#define LED_AZUL        12           // LED azul permanece no pino 12
+#define LED_AZUL        12           // LED azul no pino 12
+#define LED_VERDE       11           // LED verde no pino 11
 
 // Variáveis de estado dos LEDs indicadores
 bool estado_led_vermelho = false;     // Estado inicial: desligado
