@@ -11,7 +11,7 @@
 extern PIO pio_global;
 extern uint sm_global;
 extern bool estado_led_azul;
-extern bool estado_led_vermelho;
+extern bool estado_led_verde;
 extern  uint8_t valor;
 
 #define TOTAL_LEDS 25
@@ -122,7 +122,7 @@ void exibir_numero(uint valor) {
         return;
     }
     // Se o led azul estiver ligado, a matriz de leds apenas irá mostrar numeros azuis
-    if (estado_led_azul == true && estado_led_vermelho==false){
+    if (estado_led_azul == true && estado_led_verde==false){
             switch (valor) {
         case 0:
              atualizar_matriz(zero, color_red_desativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
@@ -159,84 +159,81 @@ void exibir_numero(uint valor) {
        }
     }
 
-    // Se o led vermelho estiver ligado, a matriz de leds apenas irá mostrar numeros vermelhos
-    if (estado_led_azul == false && estado_led_vermelho==true){
+    // Se o led verde estiver ligado, a matriz de leds apenas irá mostrar numeros verde
+    if (estado_led_azul == false && estado_led_verde==true){
             switch (valor) {
         case 0:
-             atualizar_matriz(zero, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
+             atualizar_matriz(zero, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
             break;
         case 1:
-            atualizar_matriz(um, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
+            atualizar_matriz(um, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
             break;
         case 2:
-            atualizar_matriz(dois, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
-            break;
+            atualizar_matriz(dois, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
         case 3:
-            atualizar_matriz(tres, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
+            atualizar_matriz(tres, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
             break;
         case 4:
-            atualizar_matriz(quatro, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
+            atualizar_matriz(quatro, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
             break;
         case 5:
-            atualizar_matriz(cinco, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
+            atualizar_matriz(cinco, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
             break;
         case 6:
-            atualizar_matriz(seis, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
+            atualizar_matriz(seis, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
             break;
         case 7:
-            atualizar_matriz(sete, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
-            break;
+            atualizar_matriz(sete, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
         case 8:
-            atualizar_matriz(oito, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
+            atualizar_matriz(oito, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
             break;
         case 9:
-            atualizar_matriz(nove,  color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
+            atualizar_matriz(nove, color_red_desativa, color_green_ativa, color_blue_desativa, pio_global, sm_global);
             break;
         default:
             break;
         }
     }
 
-    
-    // Se o led vermelho e azul estiverem ligados, a matriz de leds apenas irá mostrar numeros roxos
-    if (estado_led_azul == true && estado_led_vermelho==true) {
+
+    if (estado_led_azul == true && estado_led_verde==true) {
             switch (valor) {
         case 0:
-             atualizar_matriz(zero, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+             atualizar_matriz(zero, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 1:
-            atualizar_matriz(um, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz(um, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 2:
-            atualizar_matriz(dois, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz (dois, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 3:
-            atualizar_matriz(tres, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz(tres, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 4:
-            atualizar_matriz(quatro, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz(quatro, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 5:
-            atualizar_matriz(cinco, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz(cinco, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 6:
-            atualizar_matriz(seis, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz(seis, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 7:
-            atualizar_matriz(sete, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz(sete, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 8:
-            atualizar_matriz(oito, color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz(oito, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         case 9:
-            atualizar_matriz(nove,  color_red_ativa, color_green_desativa, color_blue_ativa, pio_global, sm_global);
+            atualizar_matriz(nove, color_red_desativa, color_green_ativa, color_blue_ativa, pio_global, sm_global);
             break;
         default:
             break;
         }
     }
 
-    if (estado_led_azul==false && estado_led_vermelho==false){
+    if (estado_led_azul==false && estado_led_verde==false){
     switch (valor) {
         case 0:
             atualizar_matriz(zero, color_red_ativa, color_green_desativa, color_blue_desativa, pio_global, sm_global);
