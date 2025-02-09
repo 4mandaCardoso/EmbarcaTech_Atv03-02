@@ -40,7 +40,7 @@
 #define LED_VERDE       11           // LED verde no pino 11
 
 // Variáveis de estado dos LEDs indicadores
-bool estado_led_vermelho = false;     // Estado inicial: desligado
+bool estado_led_verde = false;     // Estado inicial: desligado
 bool estado_led_azul = false;         // Estado inicial: desligado
 
 // =====================================================
@@ -103,8 +103,8 @@ int main(void)
     matriz_de_leds_program_init(pio_global, sm_global, offset, LED_MATRIZ_PIN);
     
     // Configuração dos LEDs indicadores
-    gpio_init(LED_VERMELHO);
-    gpio_set_dir(LED_VERMELHO, GPIO_OUT);
+    gpio_init(LED_VERDE);
+    gpio_set_dir(LED_VERDE, GPIO_OUT);
     gpio_init(LED_AZUL);
     gpio_set_dir(LED_AZUL, GPIO_OUT);
     
@@ -127,7 +127,7 @@ int main(void)
     gpio_set_irq_enabled_with_callback(BOTAO_JOY, GPIO_IRQ_EDGE_FALL, true, &handler_gpio);
     
     // Exibe mensagens iniciais no display OLED
-    ssd1306_draw_string(&displayOLED, "LED RED: off", 10, 10);
+    ssd1306_draw_string(&displayOLED, "LED GREEN: off", 10, 10);
     ssd1306_draw_string(&displayOLED, "LED BLUE: off", 10, 20);
     ssd1306_send_data(&displayOLED);
     
@@ -188,18 +188,18 @@ static void handler_gpio(uint gpio, uint32_t eventos)
         if (tempo_atual - tempo_ultimo_botaoA > TEMPO_DEBOUNCE_US)
         {
             tempo_ultimo_botaoA = tempo_atual;
-            estado_led_vermelho = !estado_led_vermelho;
-            gpio_put(LED_VERMELHO, estado_led_vermelho);
+            estado_led_verde = !estado_led_verde;
+            gpio_put(LED_VERDE, estado_led_verde);
             
-            if (estado_led_vermelho)
+            if (estado_led_verde)
             {
-                ssd1306_draw_string(&displayOLED, "LED RED: on ", 10, 10);
-                printf("LED vermelho: LIGADO.\n");
+                ssd1306_draw_string(&displayOLED, "LED GREEN: on ", 10, 10);
+                printf("LED verde: LIGADO.\n");
             }
             else
             {
-                ssd1306_draw_string(&displayOLED, "LED RED: off", 10, 10);
-                printf("LED vermelho: DESLIGADO.\n");
+                ssd1306_draw_string(&displayOLED, "LED GREEN: off", 10, 10);
+                printf("LED verde: DESLIGADO.\n");
             }
         }
     }
